@@ -11,12 +11,14 @@ const PORT = process.env.PORT || 8000;
 const ioManager = new IOManager();
 
 app.use(cors())
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({message: '3D Cube goes BRRRRRRR....'})
 });
 
 app.post('/user-survey', (req, res)=> {
+    console.log('User filled survey:', req.body);
     res.json({
         message: 'Saved user data!'
     })
